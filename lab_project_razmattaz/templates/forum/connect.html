@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/*Shows the button to the desired place on the computer */
+.button {
+    background-color: #ff0000; /* red */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+    cursor: pointer;
+    justify-content: center;
+    top:10%;
+    vertical-align:middle;
+    position: absolute;
+    
+    
+    margin:auto;
+    left: 80%;
+    bottom: 80%;
+    right: 3%;
+}
+/*sets the format of the button to be of a certain font and of a certain angle*/
+.buttonl {
+    border-radius: 15px;
+    font-size:30px!important;
+    
+}
+/*aligns the text*/
+.wrapper {
+    text-align: center;
+    vertical-align:middle;
+}
+/*Creating a top navigation frame*/
+.topnav {
+  overflow: hidden;
+  background-color: #999999;
+}
+
+/*This shows the first page to the user , so that he can sign in by getting redirected to the microsoft registration page*/
+</style>
+</head>
+<body>
+    <title>Kings Forum</title>
+    <div class="topnav">
+      <h2>Kings Forum Sign In Page</h2>
+    </div>
+    <img src="https://brockport.studioabroad.com/_customtags/ct_Image.cfm?Image_ID=11086" alt="Kings Banner" width="1904" height="845">
+    <div class="wrapper">
+    <button class="button buttonl" onclick="window.location.href='{{sign_in_url}}'">
+    Click here to sign in
+    </button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/*Creating a top navigation frame*/
+.topnav {
+  overflow: hidden;
+  background-color: #999999;
+}
+/*sets the table's width when used*/
+table{
+    width:100%;
+}
+/*sets the table , the rows and collums to have a specific design when used*/
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    vertical-align: bottom;
+    
+}
+
+/*the rest of the html file displays our main page of the forum where the user sees all the posts created , when it was created and by who in a table format*/
+/*the user can as well delete the post if we was its creator*/
+</style>
+</head>
+<body>
+
+    <title>Kings Forum</title>
+    <div class="topnav">
+      <h2>Kings Forum : Main Page</h2>
+    </div>
+      <h1 class="title">Hello {{user_name}}</h1>
+        <h3>Posts</h3>
+
+    
+
+    <a href="{% url 'post_new' %}">Create new Post</a>
+    
+    
+    
+
+    
+
+    
+        <table align ="center">
+        <tr style = "background-color: black; color: white;">
+            <th>Title</th>
+            <th>Date of creation</th>
+            <th>Delete button for post</th>
+        </tr>
+        </table>
+        {% for post in posts %}
+        
+        <a href="{% url 'post_detail' post.id%}">
+        
+        <table align="center">
+        <tr style = "background-color:#eee;">
+            <td>{{post.title}}</td>
+            <td>{{post.date}}</td>
+            <td><a href="{% url 'post_delete' post.id %}">Delete</a></td>
+        </tr>
+        </table>
+        </a>
+        
+        {% endfor %}
+        
+        
+        <a href="{% url 'logout' %}"><h4>Logout</h4></a>
+    
+</body>
+    
+</html>

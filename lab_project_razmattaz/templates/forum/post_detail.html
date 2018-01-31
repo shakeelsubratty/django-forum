@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+/*set all the div to display the text in a grey text box*/
+.greyBox {
+    background-color: lightgrey;
+    width: 300px;
+    
+    padding: 25px;
+    margin: 25px;
+}
+/*Creating a top navigation frame*/
+.topnav {
+  overflow: hidden;
+  background-color: #999999;
+}
+/*this will display the post that the person clicked on and will allow the person to be able to write a comment and watch other persons's comments*/
+</style>
+</head>
+<body>
+
+    <div class="topnav">
+      <h2>Kings Forum : Post</h2>
+    </div>
+
+
+    <a href="{% url 'index_home' %}"><p>Back to forum</p></a>
+
+    <center><h2>{{post.title}}</h2></center>
+
+    <center><p><br><div class = "greyBox">{{post.text}}</div></p></center>
+
+    <center><p>Posted by: {{post.author}} , posted: {{post.date}}</p></center>
+    
+
+
+    <a href="{% url 'comment_new' post.id %}">Create new Comment</a>
+
+    <center><h2>Comments</h2></center>
+
+    <ul>
+
+        {% for comment in comments%}
+
+            <br>
+            
+
+                <center><h4>{{comment.title}}</h4><center>
+
+                <center><p><br><div class = "greyBox">{{comment.text}}</div></p><center>
+
+                <center><p>Posted by {{comment.author}} on the {{comment.date}}</p><center>
+                    <a href={% url 'comment_delete' comment.id%}> Delete </a>
+                <hr>
+            
+
+        {% endfor %}
+
+    </ul>
+
+</body>
+</html>
